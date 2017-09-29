@@ -6,9 +6,6 @@ import java.awt.*;
 public class BorderLayout extends JFrame {
 
 
-
-
-
     public BorderLayout() throws HeadlessException {
         this.setTitle("BorderLayout");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -18,20 +15,28 @@ public class BorderLayout extends JFrame {
     }
 
 
-    public  void initComponents(){
+    public void initComponents() {
 
-            this.add(new JLabel("North"), java.awt.BorderLayout.NORTH);
+        JPanel jPNorth = new JPanel();
+        JPanel jPSouth = new JPanel();
+        JPanel jPWest = new JPanel();
+        JPanel jPEast = new JPanel();
+        JPanel jPCenter = new JPanel();
 
-            this.add(new JLabel("South"), java.awt.BorderLayout.SOUTH);
 
-            this.add(new JLabel("East"), java.awt.BorderLayout.EAST);
 
-            this.add(new JLabel("West"), java.awt.BorderLayout.WEST);
+        this.add(jPNorth);
 
-            this.add(new JLabel("Center"), java.awt.BorderLayout.CENTER);
+        this.add(new JLabel("South"), java.awt.BorderLayout.SOUTH);
+
+        this.add(new JLabel("East"), java.awt.BorderLayout.EAST);
+
+        this.add(new JLabel("West"), java.awt.BorderLayout.WEST);
+
+        this.add(new JLabel("Center"), java.awt.BorderLayout.CENTER);
 
 
     }
-    }
+}
 
 
