@@ -35,6 +35,12 @@ public class BorderLayout extends JFrame {
         jPWest.add(jLWest);
         jPCenter.add(jLCenter);
 
+        jPNorth.setBorder(BorderFactory.createDashedBorder(Color.BLACK));
+        jPSouth.setBorder(BorderFactory.createDashedBorder(Color.BLACK));
+        jPEast.setBorder(BorderFactory.createDashedBorder(Color.BLACK));
+        jPWest.setBorder(BorderFactory.createDashedBorder(Color.BLACK));
+        jPCenter.setBorder(BorderFactory.createDashedBorder(Color.BLACK));
+
         this.add(jPNorth, java.awt.BorderLayout.NORTH);
         this.add(jPSouth, java.awt.BorderLayout.SOUTH);
         this.add(jPEast, java.awt.BorderLayout.EAST);
