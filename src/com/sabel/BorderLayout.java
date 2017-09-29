@@ -23,18 +23,23 @@ public class BorderLayout extends JFrame {
         JPanel jPEast = new JPanel();
         JPanel jPCenter = new JPanel();
 
+        JLabel jLNorth = new JLabel("North");
+        JLabel jLSouth = new JLabel("South");
+        JLabel jLEast = new JLabel("East");
+        JLabel jLWest = new JLabel("West");
+        JLabel jLCenter = new JLabel("Center");
 
+        jPNorth.add(jLNorth);
+        jPSouth.add(jLSouth);
+        jPEast.add(jLEast);
+        jPWest.add(jLWest);
+        jPCenter.add(jLCenter);
 
-        this.add(jPNorth);
-
-        this.add(new JLabel("South"), java.awt.BorderLayout.SOUTH);
-
-        this.add(new JLabel("East"), java.awt.BorderLayout.EAST);
-
-        this.add(new JLabel("West"), java.awt.BorderLayout.WEST);
-
-        this.add(new JLabel("Center"), java.awt.BorderLayout.CENTER);
-
+        this.add(jPNorth, java.awt.BorderLayout.NORTH);
+        this.add(jPSouth, java.awt.BorderLayout.SOUTH);
+        this.add(jPEast, java.awt.BorderLayout.EAST);
+        this.add(jPWest, java.awt.BorderLayout.WEST);
+        this.add(jPCenter, java.awt.BorderLayout.CENTER);
 
     }
 }
