@@ -2,26 +2,44 @@ package com.sabel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Random;
 
 public class BorderLayout extends JFrame {
+
+    JPanel jPNorth;
+    JPanel jPSouth;
+    JPanel jPWest;
+    JPanel jPEast;
+    JPanel jPCenter;
 
 
     public BorderLayout() throws HeadlessException {
         this.setTitle("BorderLayout");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(300, 200);
+
         this.initComponents();
+        this.initEvents();
+
         this.setVisible(true);
     }
 
 
-    public void initComponents() {
+    private void initComponents() {
 
-        JPanel jPNorth = new JPanel();
-        JPanel jPSouth = new JPanel();
-        JPanel jPWest = new JPanel();
-        JPanel jPEast = new JPanel();
-        JPanel jPCenter = new JPanel();
+        jPNorth = new JPanel();
+        jPSouth = new JPanel();
+        jPWest = new JPanel();
+        jPEast = new JPanel();
+        jPCenter = new JPanel();
+
+        JPanel jFlow = new JPanel();
+        jFlow.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 30));
+        for (int i = 0; i < 5; i++) {
+            jFlow.add(new JLabel("Text " + (i + 1)));
+        }
 
         JLabel jLNorth = new JLabel("North");
         JLabel jLSouth = new JLabel("South");
@@ -45,9 +63,44 @@ public class BorderLayout extends JFrame {
         this.add(jPSouth, java.awt.BorderLayout.SOUTH);
         this.add(jPEast, java.awt.BorderLayout.EAST);
         this.add(jPWest, java.awt.BorderLayout.WEST);
-        this.add(jPCenter, java.awt.BorderLayout.CENTER);
+        this.add(jFlow, java.awt.BorderLayout.CENTER);
 
     }
+
+    private void initEvents() {
+
+        Random r = new Random();
+
+        jPEast.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                jPEast.setBackground(new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256)));
+            }
+        });
+
+        jPWest.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                jPWest.setBackground(new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256)));
+            }
+        });
+
+        jPNorth.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                jPNorth.setBackground(new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256)));
+            }
+        });
+
+        jPSouth.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                jPSouth.setBackground(new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256)));
+            }
+        });
+    }
+
+
 }
 
 
